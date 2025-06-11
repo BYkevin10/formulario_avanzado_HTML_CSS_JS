@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Avanzado</title>
+    <link rel="stylesheet" href="./_CSS/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🚀 Formulario Avanzado</h1>
+
+        <!-- Barra de Progreso-->
+
+        <div class="progreso-formulario">
+            <div class="barra-progreso" id="barraProgreso"></div>
+        </div>
+        <p style="text-align: center; color: #666; margin-bottom: 30px;">
+            Progreso: <span id="porcentajeProgreso">0%</span>
+        </p>
+
+        <!-- Formulario -->
+
+        <form id="formularioAvanzado" novalidate>
+            <!-- Nombre con validacion en tiempo real -->
+            <div class="form-group">
+                <label for="nombres">Nombres: </label>
+                <input type="text" id="nombres" name="nombres" required autofocus placeholder="Ej: Juan Carlos"
+                    pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü ]{3,40}">
+                <div class="mensaje-error" id="errorNombres"></div>
+                <div class="mensaje-exito" id="exitoNombres"></div>
+            </div>
+            <!-- Apellidos con validacion en tiempo real -->
+            <div class="form-group">
+                <label for="apellidos">Apellidos: </label>
+                <input type="text" id="apellidos" name="apellidos" required placeholder="Ej: Pérez Gómez"
+                    pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü ]{3,40}">
+                <div class="mensaje-error" id="errorApellidos"></div>
+                <div class="mensaje-exito" id="exitoApellidos"></div>
+            </div>
+            <!-- Correo con validacion personalisada -->
+            <div class="form-group">
+                <label for="correo">Correo Electrónico: </label>
+                <input type="email" id="correo" name="correo" required placeholder="usuario@dominio.com"
+                    pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{5,50}$">
+                <div class="mensaje-error" id="errorCorreo"></div>
+                <div class="mensaje-exito" id="exitoCorreo"></div>
+            </div>
+            <!--Confirmacion de correo -->
+            <div class="form-group">
+                <label for="confirmarCorreo">Confirmar Correo Electrónico:</label>
+                <input type="email" id="confirmarCorreo" name="confirmarCorreo" required placeholder="Repite tu correo"
+                    onpaste="return false;" oncopy="return false;" oncut="return false;">
+                <div class="mensaje-error" id="errorConfirmarCorreo"></div>
+                <div class="mensaje-exito" id="exitoConfirmarCorreo"></div>
+            </div>
+            <!-- Contraseña con indicador de -->
+            <div class="form-group">
+                <label for="password">Contraseña: </label>
+                <input type="password" id="password" name="password" required placeholder="Minimo 8 caracteres"
+                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
+                <div class="password-strength" id="strengthBar"></div>
+                <div class="mensaje-error" id="errorPassword"></div>
+                <div class="mensaje-exito" id="exitoPassword"></div>
+            </div>
+            <!--Confirmacion contraseña -->
+            <div class="form-group">
+                <label for="confirmarPassword">Confirmar Contraseña: </label>
+                <input type="password" id="confirmarPassword" name="confirmarPassword" required
+                    placeholder="Repite tu contraseña">
+                <div class="mensaje-error" id="errorConfirmar"></div>
+                <div class="mensaje-exito" id="exitoConfirmar"></div>
+            </div>
+            <!-- Telefono con formato -->
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required placeholder="300-123-4567"
+                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                <div class="mensaje-error" id="errorTelefono"></div>
+                <div class="mensaje-exito" id="exitoTelefono"></div>
+            </div>
+            <!-- Fecha de nacimiento -->
+            <div class="form-group">
+                <label for="fechaNacimiento">fecha de Nacimiento: </label>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                <div class="mensaje-error" id="errorFecha"></div>
+                <div class="mensaje-exito" id="exitoFecha"></div>
+            </div>
+            <!--Comentarios con contador -->
+            <div class="form-group">
+                <label for="comentarios">Comentarios: </label>
+                <textarea name="comentarios" id="comentarios" rows="4" maxlength="500"
+                    placeholder="Cuéntanos sobre ti (máximo 500 caracteres)">
+                </textarea>
+                <div class="contador-caracteres">
+                    <span id="contadorComentarios">0</span>/500 caracteres
+                </div>
+            </div>
+            <!-- Termino y condiciones-->
+            <div class="form-group">
+                <input type="checkbox" id="terminos" name="terminos" required>
+                <label for="terminos" style="display: inline; margin-left: 8px;">
+                    Acepto los terminos y condiciones *
+                </label>
+                <div class="mensaje-error" id="errorTerminos"></div>
+                <div class="mensaje-exito" id="exitoTerminos"></div>
+            </div>
+            <!-- Button -->
+            <button type="submit" id="btnEnviar" disabled>
+                📤 Enviar Formulario
+            </button>
+        </form>
+    </div>
+    <script src="./_JS/script.js"></script>
+</body>
+
+</html>
